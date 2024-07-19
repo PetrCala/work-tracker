@@ -52,4 +52,4 @@ const createExampleInvoice = async () => {
   console.log(`Invoice saved to ${outputPath}`);
 };
 
-export {createExampleInvoice};
+export {createPDF, createExampleInvoice};
