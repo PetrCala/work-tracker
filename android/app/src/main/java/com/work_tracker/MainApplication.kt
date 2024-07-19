@@ -1,4 +1,4 @@
-package com.work_tracker
+package com.petrcala.work_tracker
 
 import android.app.Application
 import com.facebook.react.PackageList
