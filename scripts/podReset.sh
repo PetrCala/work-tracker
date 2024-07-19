@@ -51,12 +51,7 @@ pod install
 
 cd $PROJECT_ROOT
 
-git add ios/Podfile.lock
-git add ios*/project.pbxproj
-git add ios*/IDEWorkspaceChecks.plist
-git add ios*/xcshareddata
-git add ios*/xcuserdata
-git add ios*/Pods
+git add ios*
 git commit -m "chore: reinstall iOS pods"
 
 success "pod reset complete!"
