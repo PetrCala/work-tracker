@@ -49,10 +49,14 @@ pod setup
 
 pod install
 
-cd $PROJECT_ROOT
+cd ios
 
-git add ios*
+cd $PROJECT_ROOT/ios
+
+git add .
 git commit -m "chore: reinstall iOS pods"
+
+cd $PROJECT_ROOT
 
 success "pod reset complete!"
 
