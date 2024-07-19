@@ -7,16 +7,14 @@
     "ios": "react-native run-ios",
     "ios:pod:install": "cd ios && pod install && cd ..",
     "ios:pod:reset": "./scripts/podReset.sh",
+    "merge": "./scripts/mergeAndPush.sh",
     "lint": "eslint . --max-warnings=0 --cache --cache-location=node_modules/.cache/eslint",
     "start": "react-native start",
     "test": "jest"
   },
   "dependencies": {
-    "@tsconfig/react-native": "^3.0.5",
-    "firebase": "^10.12.4",
     "react": "18.2.0",
-    "react-native": "0.74.3",
-    "react-native-config": "^1.5.2"
+    "react-native": "0.74.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
