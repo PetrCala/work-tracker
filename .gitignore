@@ -5,6 +5,10 @@
 # Data
 data/**
 
+# Env
+.env.*
+!.env.example
+
 # Xcode
 #
 build/
