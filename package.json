@@ -12,7 +12,8 @@
     "start": "react-native start",
     "test": "jest",
     "bump": "./scripts/bumpVersion.sh",
-    "report": "./scripts/report.sh"
+    "report": "./scripts/report.sh",
+    "main": "./scripts/invokeMain.sh"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.24.0",
@@ -20,6 +21,7 @@
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.10.1",
     "@react-navigation/stack": "^6.4.1",
+    "pdf-lib": "^1.17.1",
     "react": "18.2.0",
     "react-native": "0.74.3",
     "react-native-config": "^1.5.2",

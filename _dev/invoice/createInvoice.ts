@@ -1,9 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import PATHS from '@dev/PATHS';
-import {Company, HoursWorkedData} from '@src/types/database';
+import {Company, HoursWorkedData, Invoice} from '@src/types/database';
 
-function createInvoice(hoursWorked: HoursWorkedData, company: Company): string {
+function createInvoice(
+  hoursWorked: HoursWorkedData,
+  company: Company,
+): Invoice {
   const templateName = company.invoice_template;
   const templatePath = path.join(PATHS.INVOICE_TEMPLATES, templateName);
   const templateContent = fs.readFileSync(templatePath, 'utf8');
@@ -43,7 +46,11 @@ function createInvoice(hoursWorked: HoursWorkedData, company: Company): string {
   // );
 
   // return invoiceContent;
-  return templateContent;
+
+  // TODO
+
+  const returnInvoice = 'TODO';
+  return returnInvoice;
 }
 
 export {createInvoice};

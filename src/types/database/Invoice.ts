@@ -1,3 +1,4 @@
+import {PDFDocument} from 'pdf-lib';
 import Company from './Company';
 
 type InvoiceData = {
@@ -8,4 +9,7 @@ type InvoiceData = {
   totalAmount: number;
 };
 
+type Invoice = PDFDocument;
+
+export default Invoice;
 export type {InvoiceData};

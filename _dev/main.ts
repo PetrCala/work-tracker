@@ -3,6 +3,7 @@
 require('dotenv').config(); // for the process.env variables to read the .env file
 import {askForConfirmationInProduction} from '@dev/utils/devEnv';
 import {generateMonthlyReport} from './report';
+import {createExampleInvoice} from './invoice/example';
 
 (async () => {
   await askForConfirmationInProduction(); // Exits the script run upon production run user deny
@@ -24,8 +25,9 @@ async function main() {
       const [month, year, ...otherArgs] = args;
       const saveFile = !otherArgs.includes('--no-save');
       generateMonthlyReport(month, year, saveFile);
+    } else if (action === 'create-example-invoice') {
+      await createExampleInvoice();
     }
-    // await createAuthUsers();
   } catch (error) {
     console.error('An error occurred:', error);
   } finally {
