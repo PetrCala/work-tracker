@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@tsconfig/react-native": "^3.0.5",
+    "firebase": "^10.12.4",
     "react": "18.2.0",
     "react-native": "0.74.3",
     "react-native-config": "^1.5.2"
