@@ -22,8 +22,9 @@ async function main() {
     console.debug('Running the main script...');
     const [action, ...args] = flags;
     if (action === 'report') {
-      const [month, year] = args;
-      generateMonthlyReport(month, year);
+      const [month, year, ...otherArgs] = args;
+      const saveFile = !otherArgs.includes('--no-save');
+      generateMonthlyReport(month, year, saveFile);
     }
     // await createAuthUsers();
   } catch (error) {

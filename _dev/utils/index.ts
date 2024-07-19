@@ -53,6 +53,22 @@ function writeJsonFile(filePath: string, data: any): boolean {
 }
 
 /**
+ * Create a folder if it does not already exist.
+ * If the folder already exists, this function does nothing.
+ *
+ * @param folderPath - The path of the folder to create.
+ * @returns void
+ *
+ * @example
+ * createFolderIfNotExists('/path/to/folder');
+ */
+function createFolderIfNotExists(folderPath: string): void {
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath, {recursive: true});
+  }
+}
+
+/**
  * Finds all values in an object or array that match a given key.
  * @param node - The object or array to search.
  * @param keyToFind - The key to match.
@@ -153,6 +169,7 @@ async function askForValue(question: string): Promise<string> {
 export {
   readJsonFile,
   writeJsonFile,
+  createFolderIfNotExists,
   findValuesByKey,
   findSingleValueByKey,
   confirmExecution,

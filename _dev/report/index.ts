@@ -1,7 +1,7 @@
 import path from 'path';
 import PATHS from '@dev/PATHS';
 import CONST from '@src/CONST';
-import {readJsonFile} from '@dev/utils';
+import {readJsonFile, writeJsonFile, createFolderIfNotExists} from '@dev/utils';
 
 // Define the structure of the JSON data
 interface HoursWorkedEntry {
@@ -14,8 +14,19 @@ interface Report {
   [key: string]: number;
 }
 
-// Function to generate the monthly report
-const generateMonthlyReport = (month: string, year: string): Report => {
+/**
+ * Generate a monthly report of hours worked for all companies.
+ *
+ * @param month The month to generate the report for.
+ * @param year The year to generate the report for.
+ * @param save If true, save the report to a file.
+ * @returns The report object.
+ */
+const generateMonthlyReport = (
+  month: string,
+  year: string,
+  save: boolean = true,
+): Report => {
   if (!month || !year) {
     console.error(
       'Please specify both month and year as arguments. For example: ts-node monthlyReport.ts 01 2024',
@@ -45,6 +56,16 @@ const generateMonthlyReport = (month: string, year: string): Report => {
   console.log(`Monthly Report for ${month}/${year}`);
   for (const company in report) {
     console.log(`Company: ${company}, Hours Worked: ${report[company]}`);
+  }
+
+  if (save) {
+    const reportFilePath = path.resolve(
+      PATHS.REPORTS,
+      `${year}-${month}-report.json`,
+    );
+    createFolderIfNotExists(PATHS.REPORTS);
+    writeJsonFile(reportFilePath, report);
+    console.log(`Report saved to ${reportFilePath}`);
   }
 
   return report;
