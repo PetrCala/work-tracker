@@ -1,1 +1,17 @@
-Sympulse
+Invoice for {{company.name}}
+Date: {{date}}
+Hours Worked: {{hoursWorked}}
+Rate per Hour: {{ratePerHour}}
+Total Amount: {{totalAmount}}
+
+{{#if company.address}}
+Address: {{company.address}}
+{{/if}}
+{{#if company.email}}
+Email: {{company.email}}
+{{/if}}
+{{#if company.phoneNumber}}
+Phone: {{company.phoneNumber}}
+{{/if}}
+
+Thank you for your business!
