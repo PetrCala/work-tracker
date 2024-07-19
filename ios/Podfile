@@ -21,6 +21,8 @@ target 'work_tracker' do
     :path => config[:reactNativePath],
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
+    # Enable hermes
+    :hermes_enabled => true
   )
 
   target 'work_trackerTests' do
