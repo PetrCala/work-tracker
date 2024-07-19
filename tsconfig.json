@@ -1,3 +1,97 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    // "module": "esnext",
+    "types": ["react-native", "jest", "node"],
+    "lib": [
+      "DOM",
+      "es2019",
+      "es2020.bigint",
+      "es2020.date",
+      "es2020.number",
+      "es2020.promise",
+      "es2020.string",
+      "es2020.symbol.wellknown",
+      "es2021.promise",
+      "es2021.string",
+      "es2021.weakref",
+      "es2022.array",
+      "es2022.object",
+      "es2022.string",
+      "ES2021.Intl"
+    ],
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react-native",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["./assets/*"],
+      "@auth/*": ["src/libs/auth/*"],
+      "@components/*": ["./src/components/*"],
+      "@context/*": ["./src/context/*"],
+      "@database/*": ["./src/database/*"],
+      "@firebase/auth": ["./node_modules/@firebase/auth/dist/index.rn.d.ts"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@libs/*": ["./src/libs/*"],
+      "@navigation/*": ["./src/libs/Navigation/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@src/*": ["./src/*"],
+      "@storage/*": ["./src/storage/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["src/libs/*"]
+    }
+  },
+  "ts-node": {
+    // these options are overrides used only by ts-node
+    // same as the --compilerOptions flag and the TS_NODE_COMPILER_OPTIONS environment variable
+    "compilerOptions": {
+      "module": "commonjs",
+      "paths": {
+        "@local/*": ["./local/*"],
+        "@firebase/auth": ["./node_modules/@firebase/auth/dist/index.rn.d.ts"],
+        "@components/*": ["./src/components/*"],
+        "@src/*": ["./src/*"]
+      }
+    }
+  },
+  "exclude": [
+    "**/node_modules/*",
+    "**/dist/*",
+    ".github/actions/**/index.js",
+    "**/docs/*"
+  ],
+  "include": [
+    "__mocks__",
+    "__tests__",
+    "assets",
+    "docs",
+    "src",
+    "config",
+    ".github/**/*",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "app.json",
+    "package.json", // Application version import
+    "firebase.json",
+    "**/alcohol-tracker*.json",
+    "react-native.config.js"
+    // "workflow_tests"
+  ]
 }
