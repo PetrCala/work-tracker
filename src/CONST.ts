@@ -62,7 +62,6 @@ const CONST = {
   },
   EMPTY_ARRAY,
   EMPTY_OBJECT,
-  FIREBASE_STORAGE_URL: 'https://firebasestorage.googleapis.com',
   INVALID_CHARS: ['.', '#', '$', '[', ']'],
   LOCAL_IMAGE_PREFIX: 'file://',
   MONTHS: [
