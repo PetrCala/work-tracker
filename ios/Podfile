@@ -18,7 +18,6 @@ target 'work_tracker' do
   config = use_native_modules!
 
   # Enable react-native-sqlite-storage
-  pod 'React', :path => '../node_modules/react-native'
   pod 'react-native-sqlite-storage', :path => '../node_modules/react-native-sqlite-storage'
 
   use_react_native!(
