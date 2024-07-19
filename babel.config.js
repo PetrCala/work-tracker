@@ -1,8 +1,8 @@
 module.exports = {
   presets: [
     'module:metro-react-native-babel-preset',
-    ['@babel/preset-env', {targets: {node: 'current'}}],
     '@babel/preset-typescript',
+    ['@babel/preset-env', {targets: {node: 'current'}}],
   ],
   overrides: [
     {
@@ -43,6 +43,8 @@ module.exports = {
           '@auth': './src/auth',
           '@components': './src/components',
           '@context': './src/context',
+          '@dev': './_dev',
+          '@data': './src/data',
           '@database': './src/database',
           '@hooks': './src/hooks',
           '@libs': './src/libs',
