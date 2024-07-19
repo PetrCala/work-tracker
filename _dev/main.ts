@@ -1,9 +1,8 @@
 // Run the script using ts-node main.ts (install globally through npm install -g ts-node)
 
 require('dotenv').config(); // for the process.env variables to read the .env file
-import {askForConfirmationInProduction, isProdEnv} from '@dev/utils/devEnv';
+import {askForConfirmationInProduction} from '@dev/utils/devEnv';
 import {generateMonthlyReport} from './report';
-import PATHS from '@dev/PATHS';
 
 (async () => {
   await askForConfirmationInProduction(); // Exits the script run upon production run user deny

@@ -8,7 +8,7 @@
 const EMPTY_ARRAY = Object.freeze([]);
 const EMPTY_OBJECT = Object.freeze({});
 
-const ANDROID_PACKAGE_NAME = 'com.petrcala.worktracker';
+// const ANDROID_PACKAGE_NAME = 'com.petrcala.worktracker';
 const GH_PAGES_URL = 'https://petrcala.github.io/work-tracker';
 
 const CONST = {
@@ -27,7 +27,10 @@ const CONST = {
     LIGHT: 'light',
     DARK: 'dark',
   },
-  DATA_FILE_NAME: 'data', // Main data in the data folder
+  DATA_FILES: {
+    COMPANIES: 'companies.json',
+    DATA: 'data.json',
+  },
   DATE: {
     SQL_DATE_TIME: 'YYYY-MM-DD HH:mm:ss',
     FNS_FORMAT_STRING: 'yyyy-MM-dd',

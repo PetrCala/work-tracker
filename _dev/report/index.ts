@@ -28,7 +28,7 @@ const generateMonthlyReport = (
     process.exit(1);
   }
 
-  const filePath = path.resolve(PATHS.DATA, `${CONST.DATA_FILE_NAME}.json`);
+  const filePath = path.resolve(PATHS.DATA, `${CONST.DATA_FILES.DATA}.json`);
 
   const data: HoursWorkedData = readJsonFile(filePath);
 
@@ -40,10 +40,10 @@ const generateMonthlyReport = (
     const entryYear = entryDate.getFullYear().toString();
 
     if (entryMonth === month && entryYear === year) {
-      if (!report[entry.company]) {
-        report[entry.company] = 0;
+      if (!report[entry.company_name]) {
+        report[entry.company_name] = 0;
       }
-      report[entry.company] += entry.hours_worked;
+      report[entry.company_name] += entry.hours_worked;
     }
   });
 

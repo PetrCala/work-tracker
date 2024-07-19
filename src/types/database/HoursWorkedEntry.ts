@@ -5,7 +5,7 @@ type HoursWorkedEntry = {
   hours_worked: number;
   rate_per_day: number;
   currency: string;
-  company: CompanyName;
+  company_name: CompanyName;
 };
 
 type HoursWorkedData = Array<HoursWorkedEntry>;
