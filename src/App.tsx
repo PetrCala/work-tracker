@@ -1,6 +1,5 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, StatusBar} from 'react-native';
-import DataEntry from '@components/DataEntry';
 
 const App: React.FC = () => {
   return (
@@ -9,7 +8,7 @@ const App: React.FC = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.scrollView}>
-        <DataEntry />
+        {/* <DataEntry /> */}
       </ScrollView>
     </SafeAreaView>
   );

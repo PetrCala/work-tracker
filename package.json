@@ -22,7 +22,6 @@
     "react": "18.2.0",
     "react-native": "0.74.3",
     "react-native-config": "^1.5.2",
-    "react-native-sqlite-storage": "^6.0.1",
     "underscore": "^1.13.6",
     "yargs": "^17.7.2"
   },
@@ -41,7 +40,6 @@
     "@react-native/metro-config": "0.74.85",
     "@react-native/typescript-config": "0.74.85",
     "@types/react": "^18.2.6",
-    "@types/react-native-sqlite-storage": "^6.0.5",
     "@types/react-test-renderer": "^18.0.0",
     "babel-cli": "^6.26.0",
     "babel-jest": "^29.7.0",
