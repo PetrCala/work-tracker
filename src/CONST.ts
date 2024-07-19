@@ -8,7 +8,7 @@
 const EMPTY_ARRAY = Object.freeze([]);
 const EMPTY_OBJECT = Object.freeze({});
 
-const ANDROID_PACKAGE_NAME = 'com.petrcala.work_tracker';
+const ANDROID_PACKAGE_NAME = 'com.petrcala.worktracker';
 const GH_PAGES_URL = 'https://petrcala.github.io/work-tracker';
 
 const CONST = {
@@ -112,7 +112,7 @@ const CONST = {
   },
   STORE_LINKS: {
     ANDROID:
-      'https://play.google.com/store/apps/details?id=com.petrcala.work_tracker',
+      'https://play.google.com/store/apps/details?id=com.petrcala.worktracker',
     IOS: 'https://testflight.apple.com/join/TBA',
   },
   THEME: {

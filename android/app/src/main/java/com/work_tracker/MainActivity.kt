@@ -1,4 +1,4 @@
-package com.petrcala.work_tracker
+package com.petrcala.worktracker
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

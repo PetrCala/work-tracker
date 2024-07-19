@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.petrcala.work_tracker"
+    namespace "com.petrcala.worktracker"
     defaultConfig {
-        applicationId "com.petrcala.work_tracker"
+        applicationId "com.petrcala.worktracker"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
