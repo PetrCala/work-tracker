@@ -27,6 +27,7 @@ const CONST = {
     LIGHT: 'light',
     DARK: 'dark',
   },
+  DATA_FILE_NAME: 'data', // Main data in the data folder
   DATE: {
     SQL_DATE_TIME: 'YYYY-MM-DD HH:mm:ss',
     FNS_FORMAT_STRING: 'yyyy-MM-dd',

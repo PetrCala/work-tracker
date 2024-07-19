@@ -1,22 +1,31 @@
 // Run the script using ts-node main.ts (install globally through npm install -g ts-node)
 
 require('dotenv').config(); // for the process.env variables to read the .env file
-// import { askForConfirmationInProduction, isProdEnv } from "./devUtils/devEnv"
+import {askForConfirmationInProduction, isProdEnv} from '@dev/utils/devEnv';
+import {generateMonthlyReport} from './report';
 import PATHS from '@dev/PATHS';
 
-// const adminDb = admin.database();
 (async () => {
-  // await askForConfirmationInProduction() // Exits the script run upon production run user deny
+  await askForConfirmationInProduction(); // Exits the script run upon production run user deny
   await main();
 })();
 
 async function main() {
   try {
-    console.log('Running the main script...');
-    console.log(PATHS.DATA);
+    const flags = process.argv.slice(2);
+    if (flags.length < 1) {
+      console.log(
+        'Incorrect usage of the main script. Usage: ts-node <action> [--other-args]',
+      );
+      process.exit(0);
+    }
+    console.debug('Running the main script...');
+    const [action, ...args] = flags;
+    if (action === 'report') {
+      const [company, month, year] = args;
+      generateMonthlyReport(company, month, year);
+    }
     // await createAuthUsers();
-    // console.log("Done.")
-    // migrate_020_030(mainEnv);
   } catch (error) {
     console.error('An error occurred:', error);
   } finally {

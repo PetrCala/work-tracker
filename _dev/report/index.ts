@@ -1,6 +1,7 @@
-import fs from 'fs';
 import path from 'path';
 import PATHS from '@dev/PATHS';
+import CONST from '@src/CONST';
+import {readJsonFile} from '@dev/utils';
 
 // Define the structure of the JSON data
 interface HoursWorkedEntry {
@@ -9,18 +10,27 @@ interface HoursWorkedEntry {
   company: string;
 }
 
-// Function to read and parse the JSON file
-const readJsonFile = (filePath: string): HoursWorkedEntry[] => {
-  const jsonData = fs.readFileSync(filePath, 'utf-8');
-  return JSON.parse(jsonData);
-};
+interface Report {
+  [key: string]: number;
+}
 
 // Function to generate the monthly report
 const generateMonthlyReport = (
-  data: HoursWorkedEntry[],
+  company: string,
   month: string,
   year: string,
-): {[key: string]: number} => {
+): Report => {
+  if (!company || !month || !year) {
+    console.error(
+      'Please specify all of company, month, and year as arguments. For example: ts-node monthlyReport.ts Apple 01 2024',
+    );
+    process.exit(1);
+  }
+
+  const filePath = path.resolve(PATHS.DATA, `${CONST.DATA_FILE_NAME}.json`);
+
+  const data: HoursWorkedEntry[] = readJsonFile(filePath);
+
   const report: {[key: string]: number} = {};
 
   data.forEach(entry => {
@@ -28,7 +38,11 @@ const generateMonthlyReport = (
     const entryMonth = (entryDate.getMonth() + 1).toString().padStart(2, '0'); // getMonth is zero-based
     const entryYear = entryDate.getFullYear().toString();
 
-    if (entryMonth === month && entryYear === year) {
+    if (
+      entryMonth === month &&
+      entryYear === year &&
+      entry.company === company
+    ) {
       if (!report[entry.company]) {
         report[entry.company] = 0;
       }
@@ -36,29 +50,12 @@ const generateMonthlyReport = (
     }
   });
 
-  return report;
-};
-
-// Main function to execute the script
-const main = () => {
-  const filePath = path.resolve(PATHS.DATA, 'hoursWorked.json');
-  const month = process.argv[2]; // e.g., "01" for January
-  const year = process.argv[3]; // e.g., "2024"
-
-  if (!month || !year) {
-    console.error(
-      'Please specify both month and year as arguments. For example: ts-node monthlyReport.ts 01 2024',
-    );
-    process.exit(1);
-  }
-
-  const data = readJsonFile(filePath);
-  const report = generateMonthlyReport(data, month, year);
-
   console.log(`Monthly Report for ${month}/${year}`);
   for (const company in report) {
     console.log(`Company: ${company}, Hours Worked: ${report[company]}`);
   }
+
+  return report;
 };
 
-main();
+export {generateMonthlyReport};

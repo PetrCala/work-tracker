@@ -7,3 +7,13 @@
 </div>
 
 This repository serves for me to track the number of hours worked through a React Native app.
+
+# Generate a monthly report
+
+To get a report of hours worked for a company during a given month, run
+
+```bash
+bun run report <company-name> <month> <year>
+```
+
+Feel free to use other runners, such as `npm`, or invoke the script directly with `./scripts/report.sh`.

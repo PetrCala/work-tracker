@@ -2,16 +2,16 @@ import * as fs from 'fs';
 import * as readline from 'readline';
 
 /**
- * Loads JSON data from a file.
+ * Read JSON data from a file.
  *
  * @param filename - The path to the JSON file.
  * @returns The parsed JSON data as a Database object, or null if there was an error.
  *
  * @example
- * const data = loadJsonData('path_to_your_file.json');
+ * const data = readJsonFile('path_to_your_file.json');
  * console.log(data);
  */
-function loadJsonData(filename: string): any | null {
+function readJsonFile(filename: string): any | null {
   try {
     // Read the file synchronously (you can also use async methods)
     const rawData = fs.readFileSync(filename, 'utf8');
@@ -26,7 +26,7 @@ function loadJsonData(filename: string): any | null {
 }
 
 /**
- * Saves a JSON object to a file.
+ * Save a JSON object to a file.
  *
  * @param filePath - The absolute path where the JSON file will be saved.
  * @param data - The JSON object to be saved.
@@ -34,10 +34,10 @@ function loadJsonData(filename: string): any | null {
  *
  * @example
  * const data = { name: 'John', age: 30 };
- * const success = saveJsonData('/path/to/save.json', data);
+ * const success = writeJsonFile('/path/to/save.json', data);
  * console.log(success); // true
  */
-function saveJsonData(filePath: string, data: any): boolean {
+function writeJsonFile(filePath: string, data: any): boolean {
   try {
     // Convert the JSON object to a string
     const jsonData = JSON.stringify(data, null, 2);
@@ -151,8 +151,8 @@ async function askForValue(question: string): Promise<string> {
 }
 
 export {
-  loadJsonData,
-  saveJsonData,
+  readJsonFile,
+  writeJsonFile,
   findValuesByKey,
   findSingleValueByKey,
   confirmExecution,
