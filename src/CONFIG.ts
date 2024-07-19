@@ -19,16 +19,6 @@ export default {
   COMPONENT_NAME:
     getPlatform() === CONST.PLATFORM.IOS ? 'work_tracker' : 'work_tracker',
   ENVIRONMENT,
-  FIREBASE_CONFIG: {
-    apiKey: get(Config, 'API_KEY', ''),
-    authDomain: get(Config, 'AUTH_DOMAIN', ''),
-    // databaseURL: get(Config, 'DATABASE_URL', ''),
-    projectId: get(Config, 'PROJECT_ID', ''),
-    storageBucket: get(Config, 'STORAGE_BUCKET', ''),
-    messagingSenderId: get(Config, 'MESSAGING_SENDER_ID', ''),
-    appId: get(Config, 'APP_ID', ''),
-    measurementId: get(Config, 'MEASUREMENT_ID', ''),
-  },
   IS_IN_PRODUCTION:
     // Platform.OS === 'web' ? process.env.NODE_ENV === 'production' : !__DEV__,
     process.env.NODE_ENV === 'production' && !__DEV__,
@@ -36,8 +26,4 @@ export default {
   IS_IN_DEVELOPMENT: ENVIRONMENT === CONST.ENVIRONMENT.DEV,
   IS_IN_TEST:
     process.env.NODE_ENV === 'test' || ENVIRONMENT === CONST.ENVIRONMENT.TEST,
-  TEST_HOST: 'localhost',
-  TEST_AUTH_PORT: 9099,
-  TEST_REALTIME_DATABASE_PORT: 9001,
-  TEST_STORAGE_BUCKET_PORT: 9199,
 } as const;
