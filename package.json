@@ -12,8 +12,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@tsconfig/react-native": "^3.0.5",
     "react": "18.2.0",
-    "react-native": "0.74.3"
+    "react-native": "0.74.3",
+    "react-native-config": "^1.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
