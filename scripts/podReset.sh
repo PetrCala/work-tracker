@@ -10,6 +10,12 @@
 # Usage: ./podReset.sh [soft|hard]
 # Example: ./podReset.sh soft
 
+NO_COMMIT=false
+
+if [[ "$@" == *"--no-commit"* ]]; then
+  NO_COMMIT=true
+fi
+
 set -e
 
 SCRIPTS_DIR=$(dirname "${BASH_SOURCE[0]}")
@@ -49,8 +55,10 @@ pod setup
 
 pod install
 
-git add .
-git commit -m "chore: reinstall iOS pods"
+if [ "$NO_COMMIT" = false ]; then
+  git add .
+  git commit -m "chore: reinstall iOS pods"
+fi
 
 cd -
 
