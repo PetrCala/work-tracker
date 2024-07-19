@@ -2,13 +2,7 @@ import path from 'path';
 import PATHS from '@dev/PATHS';
 import CONST from '@src/CONST';
 import {readJsonFile, writeJsonFile, createFolderIfNotExists} from '@dev/utils';
-
-// Define the structure of the JSON data
-interface HoursWorkedEntry {
-  date: string;
-  hours_worked: number;
-  company: string;
-}
+import {HoursWorkedData} from '@src/types/database';
 
 interface Report {
   [key: string]: number;
@@ -36,7 +30,7 @@ const generateMonthlyReport = (
 
   const filePath = path.resolve(PATHS.DATA, `${CONST.DATA_FILE_NAME}.json`);
 
-  const data: HoursWorkedEntry[] = readJsonFile(filePath);
+  const data: HoursWorkedData = readJsonFile(filePath);
 
   const report: {[key: string]: number} = {};
 
