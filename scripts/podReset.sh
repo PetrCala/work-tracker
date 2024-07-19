@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# DESCRIPTION: This script is used to reset the CocoaPods dependencies for the Kiroku project.
+# DESCRIPTION: This script is used to reset the CocoaPods dependencies for the Work tracker project.
 # It checks if the script is being run from the project root directory and then performs
 # a soft or hard reset based on the argument passed to the script.
-# The soft reset removes the Pods directory, podfile.lock, kiroku.xcworkspace, and the build directory.
+# The soft reset removes the Pods directory, podfile.lock, work_tracker.xcworkspace, and the build directory.
 # The hard reset additionally removes the CocoaPods cache and the Xcode derived data.
 # Finally, it deintegrates the existing pods, sets up the pod environment, and installs the new pods.
 # The script should be executed from the project root directory.

@@ -13,7 +13,7 @@ const GH_PAGES_URL = 'https://petrcala.github.io/work-tracker';
 
 const CONST = {
   APP_DOWNLOAD_LINK: `${GH_PAGES_URL}/assets/html/qr-link.html`,
-  APP_QR_CODE_LINK: `${GH_PAGES_URL}/assets/images/kiroku-qr-code-with-logo.png`,
+  APP_QR_CODE_LINK: `${GH_PAGES_URL}/assets/images/work-tracker-qr-code-with-logo.png`,
   APP_IN_BETA: true,
   AVAILABLE_PLATFORMS: ['ios', 'android'],
   BUTTON_STATES: {
