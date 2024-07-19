@@ -4,6 +4,18 @@ module.exports = {
     ['@babel/preset-env', {targets: {node: 'current'}}],
     '@babel/preset-typescript',
   ],
+  overrides: [
+    {
+      plugins: [
+        [
+          '@babel/plugin-transform-private-methods',
+          {
+            loose: true,
+          },
+        ],
+      ],
+    },
+  ],
   plugins: [
     [
       'module-resolver',
