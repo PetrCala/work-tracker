@@ -15,14 +15,10 @@ interface Report {
 }
 
 // Function to generate the monthly report
-const generateMonthlyReport = (
-  company: string,
-  month: string,
-  year: string,
-): Report => {
-  if (!company || !month || !year) {
+const generateMonthlyReport = (month: string, year: string): Report => {
+  if (!month || !year) {
     console.error(
-      'Please specify all of company, month, and year as arguments. For example: ts-node monthlyReport.ts Apple 01 2024',
+      'Please specify both month and year as arguments. For example: ts-node monthlyReport.ts 01 2024',
     );
     process.exit(1);
   }
@@ -38,11 +34,7 @@ const generateMonthlyReport = (
     const entryMonth = (entryDate.getMonth() + 1).toString().padStart(2, '0'); // getMonth is zero-based
     const entryYear = entryDate.getFullYear().toString();
 
-    if (
-      entryMonth === month &&
-      entryYear === year &&
-      entry.company === company
-    ) {
+    if (entryMonth === month && entryYear === year) {
       if (!report[entry.company]) {
         report[entry.company] = 0;
       }

@@ -22,8 +22,8 @@ async function main() {
     console.debug('Running the main script...');
     const [action, ...args] = flags;
     if (action === 'report') {
-      const [company, month, year] = args;
-      generateMonthlyReport(company, month, year);
+      const [month, year] = args;
+      generateMonthlyReport(month, year);
     }
     // await createAuthUsers();
   } catch (error) {

@@ -1,17 +1,16 @@
 #!/bin/bash
 
-# Generate a report of hours work during a certain month and year working for a certain company
-# Usage: ./report.sh <company> <month> <year>
+# Generate a report of hours work during a certain month and year
+# Usage: ./report.sh <month> <year>
 
 set -e
 
-if [ "$#" -ne 3 ]; then
-  echo "Usage: ./report.sh <company> <month> <year>"
+if [ "$#" -ne 2 ]; then
+  echo "Usage: ./report.sh <month> <year>"
   exit 1
 fi
 
-company=$1
-month=$2
-year=$3
+month=$1
+year=$2
 
-ts-node _dev/main.ts report $company $month $year
+ts-node _dev/main.ts report $month $year
