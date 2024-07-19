@@ -49,8 +49,6 @@ pod setup
 
 pod install
 
-cd ios
-
 cd $PROJECT_ROOT/ios
 
 git add .
