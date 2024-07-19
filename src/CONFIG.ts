@@ -22,7 +22,7 @@ export default {
   FIREBASE_CONFIG: {
     apiKey: get(Config, 'API_KEY', ''),
     authDomain: get(Config, 'AUTH_DOMAIN', ''),
-    databaseURL: get(Config, 'DATABASE_URL', ''),
+    // databaseURL: get(Config, 'DATABASE_URL', ''),
     projectId: get(Config, 'PROJECT_ID', ''),
     storageBucket: get(Config, 'STORAGE_BUCKET', ''),
     messagingSenderId: get(Config, 'MESSAGING_SENDER_ID', ''),
@@ -36,4 +36,8 @@ export default {
   IS_IN_DEVELOPMENT: ENVIRONMENT === CONST.ENVIRONMENT.DEV,
   IS_IN_TEST:
     process.env.NODE_ENV === 'test' || ENVIRONMENT === CONST.ENVIRONMENT.TEST,
+  TEST_HOST: 'localhost',
+  TEST_AUTH_PORT: 9099,
+  TEST_REALTIME_DATABASE_PORT: 9001,
+  TEST_STORAGE_BUCKET_PORT: 9199,
 } as const;
