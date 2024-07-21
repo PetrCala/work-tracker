@@ -6,6 +6,7 @@ import {HoursWorkedData, HoursWorkedEntry} from '@src/types/database';
 import {saveHoursWorked} from '@database/hoursWorked';
 import {getAdminDb} from '@dev/admin/adminUtils';
 import {Database} from 'firebase/database';
+import CONFIG from '@src/CONFIG';
 
 async function saveToDb(): Promise<void> {
   const filePath = path.resolve(PATHS.DATA, CONST.DATA_FILES.DATA);
@@ -13,7 +14,7 @@ async function saveToDb(): Promise<void> {
 
   const data: HoursWorkedData = readJsonFile(filePath);
 
-  const userId = 'test';
+  const userId = CONFIG.UESR_ID;
 
   for (const entry of data) {
     const newEntry: HoursWorkedEntry = {

@@ -40,4 +40,5 @@ export default {
   TEST_AUTH_PORT: 9099,
   TEST_REALTIME_DATABASE_PORT: 9001,
   TEST_STORAGE_BUCKET_PORT: 9199,
+  UESR_ID: get(Config, 'USER_ID', ''),
 } as const;

@@ -8,6 +8,10 @@
 
 This repository serves for me to track the number of hours worked through a React Native app.
 
+# Prerequisites
+
+_(temporary)_ Set the `USER_ID` property in the `.env.` files to the ID of your Firebase user.
+
 # Generate a monthly report
 
 To get a report of hours worked for all companies during a given month, run
