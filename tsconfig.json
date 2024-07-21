@@ -46,6 +46,7 @@
       "@context/*": ["./src/context/*"],
       "@data/*": ["./data/*"],
       "@database/*": ["./src/database/*"],
+      "@firebase/auth": ["./node_modules/@firebase/auth/dist/index.rn.d.ts"],
       "@dev/*": ["./_dev/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@libs/*": ["./src/libs/*"],
@@ -68,6 +69,7 @@
         "@data/*": ["./data/*"],
         "@dev/*": ["./_dev/*"],
         "@local/*": ["./local/*"],
+        "@firebase/auth": ["./node_modules/@firebase/auth/dist/index.rn.d.ts"],
         "@src/*": ["./src/*"]
       }
     },
@@ -93,6 +95,7 @@
     "**/*.tsx",
     "app.json",
     "package.json", // Application version import
+    "firebase.json",
     "**/alcohol-tracker*.json",
     "react-native.config.js"
     // "workflow_tests"
