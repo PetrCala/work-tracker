@@ -69,6 +69,7 @@
         "@data/*": ["./data/*"],
         "@database/*": ["./src/database/*"],
         "@dev/*": ["./_dev/*"],
+        "@libs/*": ["./src/libs/*"],
         "@local/*": ["./local/*"],
         "@firebase/auth": ["./node_modules/@firebase/auth/dist/index.rn.d.ts"],
         "@src/*": ["./src/*"]

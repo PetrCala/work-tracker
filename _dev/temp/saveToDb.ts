@@ -14,7 +14,7 @@ async function saveToDb(): Promise<void> {
 
   const data: HoursWorkedData = readJsonFile(filePath);
 
-  const userId = CONFIG.UESR_ID;
+  const userId = process.env.USER_ID || CONFIG.USER_ID;
 
   for (const entry of data) {
     const newEntry: HoursWorkedEntry = {

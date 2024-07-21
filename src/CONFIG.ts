@@ -14,6 +14,11 @@ const get = (config: NativeConfig, key: string, defaultValue: string): string =>
 // Set default values to contributor friendly values to make development work out of the box without an .env file
 const ENVIRONMENT = get(Config, 'ENVIRONMENT', CONST.ENVIRONMENT.DEV);
 
+// Handle non-react-native cases (such as ts-node)
+if (typeof __DEV__ === 'undefined') {
+  (global as any).__DEV__ = false;
+}
+
 export default {
   APP_NAME: 'Work Tracker',
   COMPONENT_NAME:
@@ -29,9 +34,7 @@ export default {
     appId: get(Config, 'APP_ID', ''),
     measurementId: get(Config, 'MEASUREMENT_ID', ''),
   },
-  IS_IN_PRODUCTION:
-    // Platform.OS === 'web' ? process.env.NODE_ENV === 'production' : !__DEV__,
-    process.env.NODE_ENV === 'production' && !__DEV__,
+  IS_IN_PRODUCTION: process.env.NODE_ENV === 'production' && !__DEV__,
   IS_IN_STAGING: ENVIRONMENT === CONST.ENVIRONMENT.STAGING,
   IS_IN_DEVELOPMENT: ENVIRONMENT === CONST.ENVIRONMENT.DEV,
   IS_IN_TEST:
@@ -40,5 +43,5 @@ export default {
   TEST_AUTH_PORT: 9099,
   TEST_REALTIME_DATABASE_PORT: 9001,
   TEST_STORAGE_BUCKET_PORT: 9199,
-  UESR_ID: get(Config, 'USER_ID', ''),
+  USER_ID: get(Config, 'USER_ID', ''),
 } as const;
