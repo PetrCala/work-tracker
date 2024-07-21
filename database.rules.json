@@ -1,6 +1,27 @@
 {
   "rules": {
-    ".read": false,
-    ".write": false
+    "hours_worked": {
+      ".read": "auth.token.admin === true",
+      ".write": "auth.token.admin === true",
+      "$uid": {
+        ".validate": "newData.val() === null || newData.hasChildren()",
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".validate": "newData.val() === null || newData.hasChildren()",
+        ".read": "auth != null && (auth.uid === $uid)",
+        ".write": "auth != null && auth.uid === $uid",
+        "profile": {
+          ".validate": "newData.val() === null || newData.hasChildren(['display_name'])",
+          ".read": "auth != null",
+          "display_name": {
+            ".validate": "newData.isString()"
+          }
+        }
+      }
+    }
   }
 }
