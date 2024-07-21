@@ -1,5 +1,17 @@
 {
   "rules": {
+    "companies": {
+      ".read": "auth.token.admin === true",
+      ".write": "auth.token.admin === true",
+      "$company_id": {
+        ".validate": "newData.val() === null || newData.hasChildren()",
+        ".read": "auth != null",
+        ".write": "auth != null",
+        "name": {
+          ".validate": "newData.isString()"
+        }
+      }
+    },
     "hours_worked": {
       ".read": "auth.token.admin === true",
       ".write": "auth.token.admin === true",

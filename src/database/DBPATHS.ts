@@ -4,6 +4,11 @@ import type {IsEqual} from 'type-fest';
 const DBPATHS = {
   ROOT: '',
 
+  COMPANIES: 'companies',
+  COMPANIES_COMPANY_ID: {
+    route: '/companies/:company_id',
+    getRoute: (company_id: string) => `companies/${company_id}` as const,
+  },
   CONFIG: 'config',
   CONFIG_APP_SETTINGS: 'config/app_settings',
   HOURS_WORKEED: 'hours_worked',
