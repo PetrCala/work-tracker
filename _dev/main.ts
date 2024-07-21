@@ -1,7 +1,7 @@
 // Run the script using ts-node main.ts (install globally through npm install -g ts-node)
 
-require('dotenv').config(); // for the process.env variables to read the .env file
-import {askForConfirmationInProduction} from '@dev/utils/devEnv';
+import '@dev/utils/loadEnv'; // Load the environment variables
+import {askForConfirmationInProduction} from '@dev/utils/loadEnv';
 import {generateMonthlyReport} from '@src/report';
 import {createExampleInvoice} from '@src/invoice/example';
 

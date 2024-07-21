@@ -18,7 +18,9 @@ bun run report <month> <year>
 
 Pass the `--no-save` flag to skip saving the report to the output folder.
 
-Feel free to use other runners, such as `npm`, or invoke the script directly with `./scripts/report.sh`.
+Feel free to use other runners, such as `npm`, or invoke the script directly with `NODE_ENVIRONMENT=production ./scripts/report.sh`.
+
+To run the script in a development environment, use `bun run dev-report <month> <year>`.
 
 # Generate an invoice
 
