@@ -6,6 +6,16 @@ const DBPATHS = {
 
   CONFIG: 'config',
   CONFIG_APP_SETTINGS: 'config/app_settings',
+  HOURS_WORKEED: 'hours_worked',
+  HOURS_WORKEED_USER_ID: {
+    route: '/hours_worked/:user_id',
+    getRoute: (user_id: UserID) => `hours_worked/${user_id}` as const,
+  },
+  HOURS_WORKEED_USER_ID_ENTRY_ID: {
+    route: '/hours_worked/:user_id/:entry_id',
+    getRoute: (user_id: UserID, entry_id: string) =>
+      `hours_worked/${user_id}/${entry_id}` as const,
+  },
   USERS: 'users',
   USERS_USER_ID: {
     route: '/users/:user_id',
