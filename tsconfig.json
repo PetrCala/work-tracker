@@ -67,6 +67,7 @@
       "paths": {
         "@components/*": ["./src/components/*"],
         "@data/*": ["./data/*"],
+        "@database/*": ["./src/database/*"],
         "@dev/*": ["./_dev/*"],
         "@local/*": ["./local/*"],
         "@firebase/auth": ["./node_modules/@firebase/auth/dist/index.rn.d.ts"],

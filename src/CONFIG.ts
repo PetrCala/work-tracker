@@ -22,7 +22,7 @@ export default {
   FIREBASE_CONFIG: {
     apiKey: get(Config, 'API_KEY', ''),
     authDomain: get(Config, 'AUTH_DOMAIN', ''),
-    // databaseURL: get(Config, 'DATABASE_URL', ''),
+    databaseURL: get(Config, 'DATABASE_URL', ''),
     projectId: get(Config, 'PROJECT_ID', ''),
     storageBucket: get(Config, 'STORAGE_BUCKET', ''),
     messagingSenderId: get(Config, 'MESSAGING_SENDER_ID', ''),

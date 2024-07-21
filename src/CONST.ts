@@ -12,6 +12,10 @@ const EMPTY_OBJECT = Object.freeze({});
 const GH_PAGES_URL = 'https://petrcala.github.io/work-tracker';
 
 const CONST = {
+  ADMIN_SDK: {
+    DEV: 'work-tracker-admin-sdk-dev',
+    PROD: 'work-tracker-admin-sdk-prod',
+  },
   APP_DOWNLOAD_LINK: `${GH_PAGES_URL}/assets/html/qr-link.html`,
   APP_QR_CODE_LINK: `${GH_PAGES_URL}/assets/images/work-tracker-qr-code-with-logo.png`,
   APP_IN_BETA: true,

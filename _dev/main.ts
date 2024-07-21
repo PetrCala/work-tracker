@@ -4,6 +4,7 @@ import '@dev/utils/loadEnv'; // Load the environment variables
 import {askForConfirmationInProduction} from '@dev/utils/loadEnv';
 import {generateMonthlyReport} from '@src/report';
 import {createExampleInvoice} from '@src/invoice/example';
+import {saveToDb} from './temp/saveToDb';
 
 (async () => {
   await askForConfirmationInProduction(); // Exits the script run upon production run user deny
@@ -27,6 +28,8 @@ async function main() {
       generateMonthlyReport(month, year, saveFile);
     } else if (action === 'create-example-invoice') {
       await createExampleInvoice();
+    } else if (action === 'test') {
+      await saveToDb();
     }
   } catch (error) {
     console.error('An error occurred:', error);

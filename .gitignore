@@ -9,6 +9,7 @@ output/**
 # Env
 .env.*
 !.env.example
+*-admin-sdk*.json
 
 # Xcode
 #
