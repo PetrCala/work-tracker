@@ -28,6 +28,7 @@
     "react": "18.2.0",
     "react-native": "0.74.3",
     "react-native-config": "^1.5.2",
+    "type-fest": "^4.22.1",
     "underscore": "^1.13.6",
     "yargs": "^17.7.2"
   },

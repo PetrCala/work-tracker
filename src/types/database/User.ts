@@ -1,4 +1,6 @@
-type Entrepreneur = {
+type UserID = string;
+
+type User = {
   name: string;
   ein: string;
   address: string;
@@ -6,4 +8,6 @@ type Entrepreneur = {
   phone_number: string;
 };
 
-export default Entrepreneur;
+export default User;
+
+export type {UserID};
