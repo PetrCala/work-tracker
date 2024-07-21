@@ -28,7 +28,7 @@ const generateMonthlyReport = (
     process.exit(1);
   }
 
-  const filePath = path.resolve(PATHS.DATA, `${CONST.DATA_FILES.DATA}.json`);
+  const filePath = path.resolve(PATHS.DATA, CONST.DATA_FILES.DATA);
 
   const data: HoursWorkedData = readJsonFile(filePath);
 
