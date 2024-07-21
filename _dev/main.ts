@@ -2,8 +2,8 @@
 
 require('dotenv').config(); // for the process.env variables to read the .env file
 import {askForConfirmationInProduction} from '@dev/utils/devEnv';
-import {generateMonthlyReport} from './report';
-import {createExampleInvoice} from './invoice/example';
+import {generateMonthlyReport} from '@src/report';
+import {createExampleInvoice} from '@src/invoice/example';
 
 (async () => {
   await askForConfirmationInProduction(); // Exits the script run upon production run user deny
