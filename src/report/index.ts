@@ -3,6 +3,7 @@ import PATHS from '@dev/PATHS';
 import CONST from '@src/CONST';
 import {readJsonFile, writeJsonFile, createFolderIfNotExists} from '@dev/utils';
 import {HoursWorkedData} from '@src/types/database';
+import {isEmptyObject} from '@src/types/utils/EmptyObject';
 
 interface Report {
   [key: string]: number;
@@ -46,6 +47,11 @@ const generateMonthlyReport = (
       report[entry.company_name] += entry.hours_worked;
     }
   });
+
+  if (isEmptyObject(report)) {
+    console.log('No data found for the specified month/year.');
+    return {};
+  }
 
   console.log(`Monthly Report for ${month}/${year}`);
   for (const company in report) {
