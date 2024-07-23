@@ -1,10 +1,15 @@
 import * as path from 'path';
+import fs from 'fs';
 import PATHS from '@dev/PATHS';
 import CONST from '@src/CONST';
 import {askForValue, readJsonFile, writeJsonFile} from '@dev/utils';
 
 async function removeEntry(): Promise<void> {
   const fullPath = path.join(PATHS.DATA, CONST.DATA_FILES.DATA);
+  if (!fs.existsSync(fullPath)) {
+    console.log('Data file not found. Exiting...');
+    return;
+  }
   const data = readJsonFile(fullPath);
   const lastEntry = data[data.length - 1];
   console.log('Last entry:');
