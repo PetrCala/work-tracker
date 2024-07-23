@@ -12,18 +12,34 @@ This repository serves for me to track the number of hours worked through a Reac
 
 _(temporary)_ Set the `USER_ID` property in the `.env.` files to the ID of your Firebase user.
 
-# Add an entry to the data file
+# Modify data
 
-To add a custom entry to the `data.json` file, either run
+## Add an entry to the data file
 
-```bash
-./scripts/addEntry.sh
-```
-
-or
+To add a custom entry to the `data.json` file, run
 
 ```bash
 bun run add-entry
+```
+
+or invoke the data modification script like so
+
+```bash
+./scripts/modifyData.sh add-entry
+```
+
+## Remove an entry from the data file
+
+To remove an entry (the last one), simply run
+
+```bash
+bun run remove-entry
+```
+
+or invoke the data modification script with the `remove-entry` keyword.
+
+```bash
+./scripts/modifyData.sh remove-entry
 ```
 
 # Generate a monthly report

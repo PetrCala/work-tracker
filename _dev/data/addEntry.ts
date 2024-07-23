@@ -1,5 +1,4 @@
 import * as path from 'path';
-const readline = require('readline');
 import PATHS from '@dev/PATHS';
 import CONST from '@src/CONST';
 import {askForValue, readJsonFile, writeJsonFile} from '@dev/utils';
@@ -99,4 +98,4 @@ async function addEntry(): Promise<void> {
   return;
 }
 
-export {addEntry};
+export default addEntry;

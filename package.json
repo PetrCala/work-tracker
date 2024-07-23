@@ -12,7 +12,8 @@
     "start": "react-native start",
     "test": "jest",
     "bump": "./scripts/bumpVersion.sh",
-    "add-entry": "./scripts/addEntry.sh",
+    "add-entry": "./scripts/modifyData.sh add-entry",
+    "remove-entry": "./scripts/modifyData.sh remove-entry",
     "report": "NODE_ENV=production ./scripts/report.sh",
     "dev-report": "NODE_ENV=development ./scripts/report.sh",
     "main": "./scripts/invokeMain.sh"

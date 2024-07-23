@@ -1,3 +1,4 @@
-import {addEntry} from './addEntry';
+import addEntry from './addEntry';
+import removeEntry from './removeEntry';
 
-export {addEntry};
+export {addEntry, removeEntry};
