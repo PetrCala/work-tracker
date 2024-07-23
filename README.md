@@ -12,6 +12,20 @@ This repository serves for me to track the number of hours worked through a Reac
 
 _(temporary)_ Set the `USER_ID` property in the `.env.` files to the ID of your Firebase user.
 
+# Add an entry to the data file
+
+To add a custom entry to the `data.json` file, either run
+
+```bash
+./scripts/addEntry.sh
+```
+
+or
+
+```bash
+bun run add-entry
+```
+
 # Generate a monthly report
 
 To get a report of hours worked for all companies during a given month, run
