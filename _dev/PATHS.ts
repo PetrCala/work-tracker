@@ -3,7 +3,7 @@ import * as path from 'path';
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const DEV_FOLDER = path.join(PROJECT_ROOT, '_dev');
 const OUTPUT_FOLDER = path.join(PROJECT_ROOT, 'output');
-const SECRETS_FOLDER = path.join(DEV_FOLDER, 'secrets');
+const SECRETS_FOLDER = path.join(PROJECT_ROOT, 'secrets');
 
 /**
  * Paths used in the project

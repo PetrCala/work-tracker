@@ -20,6 +20,7 @@ if [ "$#" -lt 2 ] || [ "$#" -gt 2 ]; then
   exit 1
 fi
 
-NODE_ENV=development ts-node backup "$@"
+export NODE_ENV=development
+source $SCRIPTS_DIR/invokeMain.sh backup "$@"
 
 success "Done!"

@@ -28,6 +28,7 @@ if [ "$ACTION" != "add-entry" ] && [ "$ACTION" != "remove-entry" ]; then
   exit 1
 fi
 
-NODE_ENV=development ts-node "$DEV_DIR/$MAIN_FILE_NAME" $ACTION "$@"
+export NODE_ENV=development
+source $SCRIPTS_DIR/invokeMain.sh $ACTION "$@"
 
 success "Done!"

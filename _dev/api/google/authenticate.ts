@@ -11,6 +11,13 @@ const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
  * @returns The OAuth2Client object.
  */
 async function authenticate(): Promise<OAuth2Client> {
+  if (!fs.existsSync(PATHS.GOOGLE_API_CREDENTIALS)) {
+    console.log(
+      'Google API credentials file not found under',
+      PATHS.GOOGLE_API_CREDENTIALS,
+    );
+    process.exit(1);
+  }
   const credentials = JSON.parse(
     fs.readFileSync(PATHS.GOOGLE_API_CREDENTIALS, 'utf8'),
   );
