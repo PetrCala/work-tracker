@@ -10,8 +10,13 @@ async function removeEntry(): Promise<void> {
     console.log('Data file not found. Exiting...');
     return;
   }
-  const data = readJsonFile(fullPath);
-  const lastEntry = data[data.length - 1];
+  const data = readJsonFile(fullPath) || [];
+  const lastEntry = data[data.length - 1] || {};
+  if (!lastEntry) {
+    console.log('No entries found. Exiting...');
+    return;
+  }
+
   console.log('Last entry:');
   console.log(lastEntry);
 
