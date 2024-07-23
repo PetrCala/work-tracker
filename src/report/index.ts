@@ -9,6 +9,7 @@ interface Report {
   hours_worked: number;
   days_worked: number;
   revenue: number;
+  currency: string;
 }
 
 /**
@@ -37,11 +38,11 @@ const generateMonthlyReport = (
 
   const data: HoursWorkedData = readJsonFile(filePath);
 
-  let currency: string | null = null;
   let report: Report = {
     hours_worked: 0,
     days_worked: 0,
     revenue: 0,
+    currency: 'CZK',
   };
 
   data.forEach(entry => {
@@ -49,21 +50,18 @@ const generateMonthlyReport = (
     const entryMonth = (entryDate.getMonth() + 1).toString().padStart(2, '0'); // getMonth is zero-based
     const entryYear = entryDate.getFullYear().toString();
 
-    if (entry.currency) {
-      currency = entry.currency;
-    }
-
     if (entryMonth === month && entryYear === year) {
       if (entry.company_name == companyName) {
         let daysWorked = entry.hours_worked / 8;
         report.hours_worked += entry.hours_worked;
         report.days_worked += daysWorked;
         report.revenue += daysWorked * entry.rate_per_day;
+        report.currency = entry.currency;
       }
     }
   });
 
-  if (isEmptyObject(report)) {
+  if (report.hours_worked == 0) {
     console.log('No data found for the specified month/year.');
     return {};
   }
@@ -71,7 +69,8 @@ const generateMonthlyReport = (
   console.log(`Monthly report for ${companyName} ${month}/${year}`);
   console.log(`Hours Worked: ${report.hours_worked}`);
   console.log(`Days Worked: ${report.days_worked}`);
-  console.log(`Revenue: ${currency} ${report.revenue}`);
+  console.log(`Revenue: ${report.revenue}`);
+  console.log(`Currency: ${report.currency}`);
 
   if (save) {
     const reportFilePath = path.resolve(
