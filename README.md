@@ -8,13 +8,28 @@
 
 This repository serves for me to track the number of hours worked through a React Native app.
 
+# Table of contents
+
+- [Table of contents](#table-of-contents)
+- [Prerequisites](#prerequisites)
+- [Actions to choose from](#actions-to-choose-from)
+  - [Modify data](#modify-data)
+    - [Add an entry to the data file](#add-an-entry-to-the-data-file)
+    - [Remove an entry from the data file](#remove-an-entry-from-the-data-file)
+  - [Generate a monthly report](#generate-a-monthly-report)
+  - [Generate an invoice](#generate-an-invoice)
+    - [An example invoice](#an-example-invoice)
+
 # Prerequisites
 
-_(temporary)_ Set the `USER_ID` property in the `.env.` files to the ID of your Firebase user.
+- Set the `USER_ID` property in the `.env.` files to the ID of your Firebase user.
+- Install a JavaScript runtime, such as [Node](https://nodejs.org/en), or [Bun](https://bun.sh). I personally prefer Bun, so the guides throughout the project will be using `bun run` instead of `node run`, but the choice is yours.
 
-# Modify data
+# Actions to choose from
 
-## Add an entry to the data file
+## Modify data
+
+### Add an entry to the data file
 
 To add a custom entry to the `data.json` file, run
 
@@ -28,7 +43,7 @@ or invoke the data modification script like so
 ./scripts/modifyData.sh add-entry
 ```
 
-## Remove an entry from the data file
+### Remove an entry from the data file
 
 To remove an entry (the last one), simply run
 
@@ -42,7 +57,7 @@ or invoke the data modification script with the `remove-entry` keyword.
 ./scripts/modifyData.sh remove-entry
 ```
 
-# Generate a monthly report
+## Generate a monthly report
 
 To get a report of hours worked for all companies during a given month for a company, run
 
@@ -56,9 +71,9 @@ Feel free to use other runners, such as `npm`, or invoke the script directly wit
 
 To run the script in a development environment, use `bun run dev-report <company-name> <month> <year>`.
 
-# Generate an invoice
+## Generate an invoice
 
-## An example invoice
+### An example invoice
 
 To generate an example invoice, run
 

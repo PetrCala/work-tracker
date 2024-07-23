@@ -16,7 +16,7 @@
     "remove-entry": "./scripts/modifyData.sh remove-entry",
     "report": "NODE_ENV=production ./scripts/report.sh",
     "dev-report": "NODE_ENV=development ./scripts/report.sh",
-    "main": "./scripts/invokeMain.sh"
+    "main": "NODE_ENV=development ./scripts/invokeMain.sh"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.24.0",
