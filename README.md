@@ -44,17 +44,17 @@ or invoke the data modification script with the `remove-entry` keyword.
 
 # Generate a monthly report
 
-To get a report of hours worked for all companies during a given month, run
+To get a report of hours worked for all companies during a given month for a company, run
 
 ```bash
-bun run report <month> <year>
+bun run report <company-name> <month> <year>
 ```
 
 Pass the `--no-save` flag to skip saving the report to the output folder.
 
 Feel free to use other runners, such as `npm`, or invoke the script directly with `NODE_ENVIRONMENT=production ./scripts/report.sh`.
 
-To run the script in a development environment, use `bun run dev-report <month> <year>`.
+To run the script in a development environment, use `bun run dev-report <company-name> <month> <year>`.
 
 # Generate an invoice
 
