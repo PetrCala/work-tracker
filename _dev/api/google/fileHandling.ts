@@ -3,6 +3,7 @@ import {OAuth2Client} from 'google-auth-library';
 import * as fs from 'fs';
 import * as path from 'path';
 import PATHS from '@dev/PATHS';
+import {GaxiosResponse} from 'gaxios';
 
 async function createFolder(
   drive: drive_v3.Drive,
@@ -16,7 +17,7 @@ async function createFolder(
   };
 
   const folder = await drive.files.create({
-    resource: fileMetadata,
+    requestBody: fileMetadata,
     fields: 'id',
   });
 
@@ -31,15 +32,19 @@ async function getOrCreateFolders(
   let parentId: string | undefined = undefined;
 
   for (const folderName of folders) {
-    const res = await drive.files.list({
-      q: `name='${folderName}' and mimeType='application/vnd.google-apps.folder' and '${
-        parentId ? parentId : 'root'
-      }' in parents`,
-      fields: 'files(id, name)',
-      spaces: 'drive',
-    });
+    const res: GaxiosResponse<drive_v3.Schema$FileList> =
+      await drive.files.list({
+        q: `name='${folderName}' and mimeType='application/vnd.google-apps.folder' and '${
+          parentId ? parentId : 'root'
+        }' in parents`,
+        fields: 'files(id, name)',
+        spaces: 'drive',
+      });
 
-    let folder = res.data.files?.find(folder => folder.name === folderName);
+    const files: drive_v3.Schema$File[] | undefined = res.data.files;
+    const folder: drive_v3.Schema$File | undefined = files?.find(
+      (folder: drive_v3.Schema$File) => folder.name === folderName,
+    );
 
     if (!folder) {
       parentId = await createFolder(drive, parentId, folderName);
@@ -78,7 +83,7 @@ async function uploadFile(
   };
 
   const file = await drive.files.create({
-    resource: fileMetadata,
+    requestBody: fileMetadata,
     media: media,
     fields: 'id',
   });

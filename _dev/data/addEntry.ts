@@ -1,4 +1,5 @@
 import * as path from 'path';
+import fs from 'fs';
 import PATHS from '@dev/PATHS';
 import CONST from '@src/CONST';
 import {askForValue, readJsonFile, writeJsonFile} from '@dev/utils';
@@ -28,9 +29,20 @@ const askForDate = async (defaultDate: string): Promise<string> => {
 };
 
 async function addEntry(): Promise<void> {
+  if (!fs.existsSync(PATHS.DATA)) {
+    console.log('Data directory not found. Creating a new one...');
+    fs.mkdirSync(PATHS.DATA);
+  }
+
+  const dataFilePath = path.join(PATHS.DATA, CONST.DATA_FILES.DATA);
+  if (!fs.existsSync(dataFilePath)) {
+    console.log('Data file not found. Creating a new one...');
+    fs.writeFileSync(dataFilePath, '[]'); // Empty file with an array
+  }
+
   const fullPath = path.join(PATHS.DATA, CONST.DATA_FILES.DATA);
-  const data = readJsonFile(fullPath);
-  const lastEntry = data[data.length - 1];
+  const data = readJsonFile(fullPath) || [];
+  const lastEntry = data[data.length - 1] || {};
 
   const currentDate = new Date().toISOString().split('T')[0];
   const date = await askForDate(currentDate);
@@ -39,17 +51,19 @@ async function addEntry(): Promise<void> {
     prompt: string,
     lastValue: string,
   ): Promise<string> {
-    return (
-      (await askForValue(`Enter the ${prompt} (if empty: ${lastValue}): `)) ||
-      lastValue.toString()
-    );
+    let msg = `Enter the ${prompt}`;
+    if (lastValue) {
+      msg += ` (if empty: ${lastValue})`;
+    }
+    msg += ': ';
+    return (await askForValue(msg)) || lastValue.toString();
   }
 
   const lastEntryDetails = {
-    hoursWorked: lastEntry.hours_worked,
-    ratePerDay: lastEntry.rate_per_day,
-    currency: lastEntry.currency,
-    companyName: lastEntry.company_name,
+    hoursWorked: lastEntry.hours_worked || '',
+    ratePerDay: lastEntry.rate_per_day || '',
+    currency: lastEntry.currency || 'CZK',
+    companyName: lastEntry.company_name || '',
   };
 
   const prompts = {
