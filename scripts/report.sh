@@ -5,23 +5,24 @@
 
 set -e
 
-if [ "$#" -lt 2 ] || [ "$#" -gt 3 ]; then
-  echo "Usage: ./report.sh <month> <year> [--no-save]"
+if [ "$#" -lt 3 ] || [ "$#" -gt 4 ]; then
+  echo "Usage: ./report.sh <company-name> <month> <year> [--no-save]"
   exit 1
 fi
 
-month=$1
-year=$2
+company_name=$1
+month=$2
+year=$3
 no_save_flag=""
 
-if [ "$#" -eq 3 ]; then
-  if [ "$3" == "--no-save" ]; then
+if [ "$#" -eq 4 ]; then
+  if [ "$4" == "--no-save" ]; then
     no_save_flag="--no-save"
   else
-    echo "Invalid flag: $3"
-    echo "Usage: ./report.sh <month> <year> [--no-save]"
+    echo "Invalid flag: $4"
+    echo "Usage: ./report.sh <company-name> <month> <year> [--no-save]"
     exit 1
   fi
 fi
 
-ts-node _dev/main.ts report $month $year $no_save_flag
+ts-node _dev/main.ts report $company_name $month $year $no_save_flag

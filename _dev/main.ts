@@ -24,9 +24,9 @@ async function main() {
     console.debug('Running the main script...');
     const [action, ...args] = flags;
     if (action === 'report') {
-      const [month, year, ...otherArgs] = args;
+      const [company, month, year, ...otherArgs] = args;
       const saveFile = !otherArgs.includes('--no-save');
-      generateMonthlyReport(month, year, saveFile);
+      generateMonthlyReport(company, month, year, saveFile);
     } else if (action === 'add-entry') {
       await addEntry();
     } else if (action === 'remove-entry') {
