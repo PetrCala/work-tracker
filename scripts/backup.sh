@@ -20,6 +20,6 @@ if [ "$#" -lt 2 ] || [ "$#" -gt 2 ]; then
   exit 1
 fi
 
-NODE_ENV=development ts-node "$@"
+NODE_ENV=development ts-node backup "$@"
 
 success "Done!"
