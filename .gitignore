@@ -10,6 +10,7 @@ output/**
 .env.*
 !.env.example
 *-admin-sdk*.json
+secrets/**
 
 # Xcode
 #

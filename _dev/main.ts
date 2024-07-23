@@ -6,6 +6,7 @@ import {generateMonthlyReport} from '@src/report';
 import {createExampleInvoice} from '@src/invoice/example';
 import {saveToDb} from '@dev/temp/saveToDb';
 import {addEntry, removeEntry} from '@dev/data';
+import {authenticate, uploadFile} from '@dev/api/google';
 
 (async () => {
   await askForConfirmationInProduction(); // Exits the script run upon production run user deny
@@ -31,6 +32,10 @@ async function main() {
       await addEntry();
     } else if (action === 'remove-entry') {
       await removeEntry();
+    } else if (action == 'backup') {
+      const auth = await authenticate();
+      const [localFileName, driveFolderPath] = args;
+      await uploadFile(auth, localFileName, driveFolderPath);
     } else if (action === 'create-example-invoice') {
       await createExampleInvoice();
     } else if (action === 'test') {

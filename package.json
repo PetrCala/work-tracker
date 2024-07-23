@@ -12,6 +12,7 @@
     "start": "react-native start",
     "test": "jest",
     "bump": "./scripts/bumpVersion.sh",
+    "backup": "./scripts/backup.sh",
     "add-entry": "./scripts/modifyData.sh add-entry",
     "remove-entry": "./scripts/modifyData.sh remove-entry",
     "report": "NODE_ENV=production ./scripts/report.sh",
